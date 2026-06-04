@@ -27,6 +27,14 @@ class Disciplina {
 
         return rows[0];
     }
+    static async deletar(id) {
+    const [result] = await connection.promise().query(
+        'DELETE FROM disciplinas WHERE id = ?',
+        [id]
+    );
+
+    return result;
+    }
 }
 
 module.exports = Disciplina;

@@ -51,6 +51,14 @@ class Tarefa {
 
         return result;
     }
+    static async deletar(id) {
+    const [result] = await connection.promise().query(
+        'DELETE FROM tarefas WHERE id = ?',
+        [id]
+    );
+
+    return result;
+    }
 }
 
 module.exports = Tarefa;

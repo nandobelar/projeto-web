@@ -36,6 +36,15 @@ class User {
 
         return rows[0];
     }
+    
+    static async deletar(id) {
+    const [result] = await connection.promise().query(
+        'DELETE FROM usuarios WHERE id = ?',
+        [id]
+    );
+
+    return result;
+    }
 }
 
 module.exports = User;
